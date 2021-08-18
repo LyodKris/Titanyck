@@ -4,6 +4,8 @@ import random as rd
 import pyqtgraph as pg
 from pyqtgraph.Qt import QtGui
 import pandas as pd
+from PIL import Image    #  pip install Pillow
+
 data = pd.read_csv('C:\\D\\t.csv', delimiter=',')
 
 y = data['Pclass']
@@ -54,6 +56,8 @@ plotWidget = pg.plot(title="Three plot curves")
 for i in range(3):
     plotWidget.plot(x3, y3[i], pen=(i,3))
 
+imageData = np.asarray(Image.open('C:\D\img.jpg').convert('RGB'))
+pg.image (imageData)
 if __name__ == '__main__':
     if sys.flags.interactive != 1:
         QtGui.QApplication.instance().exec()
